@@ -1,0 +1,192 @@
+@use './variables' as v;
+
+@use './mixins' as m;
+
+.header__container {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/hero-background-mobile.png);
+    background-size: 100% 35%;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .header__hero {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 20px;
+
+
+        &__title {
+            font-family: "Big Shoulders", sans-serif;
+            width: 90%;
+            margin: 0;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 60px;
+            line-height: 55px;
+            color: v.$color-title;
+            font-weight: 900;
+            margin-bottom: 0;
+        
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+
+            &__description {
+                font-family: 'Outfit', sans-serif;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 18px;
+                line-height: 28px;
+                color: v.$color-text;
+                font-weight: 400;
+            }
+
+            &__button {
+                @include m.button();
+            }
+        }   
+
+    }
+
+    @include m.breakpoint(tablet) {
+        background-image: url(../img/hero-background-tablet.png);
+        width: 100%;
+        background-size: 60% 100%;
+        background-position: left;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: 700px;
+
+        .header__hero {
+            width: 50%;
+            margin-left: 0;
+            margin-right: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            height: auto;
+            
+        }
+
+        
+    }
+
+    @include m.breakpoint(desktop) {
+        background: linear-gradient(to right, v.$color-title 50%, v.$color-secondary 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .header__hero {
+            background-image: url('../img/hero-background-desktop.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 45%;
+            height: 100%;
+
+            &__title {
+                font-size: 88px;
+                line-height: 80px;
+                color: v.$color-secondary;
+                position: absolute;
+                top: 20%;
+                left: 5%;
+            }
+
+            &__content {
+                width: 350px;
+                height: auto;
+                position: absolute;
+                top: 20%;
+                right: 5%;
+                gap: 50px;
+            }
+            
+        }
+    }
+
+    
+}
+
+//   LOCATION  //
+
+.header__location {
+    margin: 0;
+    padding: 0;
+    height: 500px;
+    width: 100%;
+    background-image: url('../img/location-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    &__button {
+        @include m.button(v.$color-title, v.$color-secondary, v.$color-primary);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        margin: 0;
+
+    }
+
+    &__pin {
+        position: absolute;
+        top: 41%;
+        left: 42%;
+    }
+
+    @include m.breakpoint(tablet) {
+        height: 600px;
+
+        &__button {
+            top: 0%;
+            left: 3%;
+        }
+
+        &__pin {
+            top: 44%;
+            left: 46%;
+        }
+    }
+
+    @include m.breakpoint(desktop) {
+
+        background-image: url('../img/location-bg-desktop.png');
+        background-size: cover;
+        background-position: center;
+
+        &__button {
+            top: 0%;
+            left: 5%;
+        }
+
+        &__pin {
+            top: 44%;
+            left: 47%;
+        }
+    }
+            
+}

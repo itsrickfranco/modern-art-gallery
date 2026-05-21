@@ -1,0 +1,75 @@
+@use './variables' as v;
+
+@mixin breakpoint($bp) {
+  @if $bp == tablet {
+    @media (min-width: v.$bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $bp == tablethorizontal {
+    @media (min-width: v.$bp-tablet-horizontal) {
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (min-width: v.$bp-desktop) {
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl {
+    @media (min-width: v.$bp-desktop-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin button($bg-color: #151515, $color: #FFFFFF, $bg-color-arrow: #D5966C) {
+  margin-left: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  a {
+    font-family: "Big Shoulders", sans-serif;
+    display: inline-flex;            
+    width: 180px;
+    align-items: stretch;
+    justify-content: flex-end;
+    text-decoration: none;
+
+    span {
+      background-color: $bg-color;
+      color: $color;
+      padding: 15px 22px;
+      font-size: 15px;
+      letter-spacing: 2px;
+      align-self: center;
+    }
+  
+    img {
+      display: block;
+      background-color: $bg-color-arrow;
+      padding: 11px 15px;
+      font-size: 10px;
+      align-self: center;
+    }
+  
+    &:hover {
+      span {
+        background-color: $bg-color-arrow;
+      }
+
+      img {
+        background-color: $bg-color;
+      }      
+    }
+  }  
+}

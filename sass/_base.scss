@@ -1,0 +1,22 @@
+@use './variables' as v;
+@use './mixins' as m;
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 450px;
+
+    @include m.breakpoint(tablet) {
+        min-width: 768px;
+    }
+
+    @include m.breakpoint(desktop) {
+        min-width: 1200px;
+    }
+}
